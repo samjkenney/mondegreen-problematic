@@ -96,7 +96,7 @@ export default {
       
 
       if (title && artist) {
-        axios.get(`http://localhost:5001/lyrics/${encodeURIComponent(title)}/${encodeURIComponent(artist)}`)
+        axios.get(`https://mondegreen-server-3e642107554c.herokuapp.com/lyrics/${encodeURIComponent(title)}/${encodeURIComponent(artist)}`)
           .then(response => {
             this.message = '';
             if (response.data.lyrics === "Lyrics not found") {
@@ -129,7 +129,7 @@ export default {
 
       if (title) {
         this.message2 = `Searching for "${title}"...`;
-        axios.get(`http://localhost:5001/genius/search/${encodeURIComponent(title)}`)
+        axios.get(`https://mondegreen-server-3e642107554c.herokuapp.com/genius/search/${encodeURIComponent(title)}`)
           .then(response => {
             this.scores = response.data;
             this.message2 = '';
@@ -156,7 +156,7 @@ export default {
       }
 
       if (title && artist) {
-        axios.get(`http://localhost:5001/lyrics/${encodeURIComponent(title)}/${encodeURIComponent(artist)}`)
+        axios.get(`https://mondegreen-server-3e642107554c.herokuapp.com/lyrics/${encodeURIComponent(title)}/${encodeURIComponent(artist)}`)
           .then(response => {
             this.message2 = '';
             store.commit('setLyrics', response.data.lyrics);
@@ -180,7 +180,7 @@ export default {
       this.message2 = '';
       this.message5 = '';
       this.message3 = `Looking for some songs in "${label}"...`;
-      axios.get(`http://localhost:5001/genius/genre/${encodeURIComponent(genre)}`)
+      axios.get(`https://mondegreen-server-3e642107554c.herokuapp.com/genius/genre/${encodeURIComponent(genre)}`)
           .then(response => {
             this.message3 = '';
             this.recommendation = response.data;
