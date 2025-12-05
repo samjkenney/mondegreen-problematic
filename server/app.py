@@ -6,6 +6,7 @@
 
 from flask import Flask, jsonify, render_template, request
 from flask_cors import CORS
+from flask_headers import headers
 from genius import *
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Integer, String, ForeignKey
@@ -13,6 +14,7 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 from typing import List, Optional
 import os
 from werkzeug.security import generate_password_hash as hash_password, check_password_hash as verify_password
+
 
 # instantiate the app
 app = Flask(__name__)
@@ -214,6 +216,7 @@ def lyrics(title = None, artist = None):
 
 # calls the searchMulti function from genius.py; returns a list of songs that match the search term
 @app.route('/genius/search/<term>', methods = ['GET', 'POST'])
+@headers('User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36', 'Accept': '*/*')
 def searchSong(term = None):
     # parse data
     results = searchMulti(term)
