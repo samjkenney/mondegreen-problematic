@@ -6,7 +6,7 @@
 
 from flask import Flask, jsonify, render_template, request
 from flask_cors import CORS
-from flask_headers import headers
+from flask.ext.headers import headers
 from genius import *
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Integer, String, ForeignKey
