@@ -94,7 +94,6 @@ export default {
       const artist = this.searchArtist.trim();
       this.message = `Searching for "${title}" by "${artist}"...`;
       
-
       if (title && artist) {
         axios.get(`https://mondegreen-server-3e642107554c.herokuapp.com/lyrics/${encodeURIComponent(title)}/${encodeURIComponent(artist)}`)
           .then(response => {
@@ -129,7 +128,9 @@ export default {
 
       if (title) {
         this.message2 = `Searching for "${title}"...`;
-        axios.get(`https://mondegreen-server-3e642107554c.herokuapp.com/genius/search/${encodeURIComponent(title)}`)
+        const url = `https://mondegreen-server-3e642107554c.herokuapp.com/genius/search/${encodeURIComponent(title)}`
+        console.log(url)
+        axios.get(url)
           .then(response => {
             this.scores = response.data;
             this.message2 = '';
