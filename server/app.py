@@ -23,7 +23,7 @@ SECRET_KEY = os.urandom(32)
 app.config['SECRET_KEY'] = SECRET_KEY
 
 # enable CORS
-CORS(app, resources={r'/*': {'origins': '*'}}, supports_credentials = True)
+#CORS(app, resources={r'/*': {'origins': '*'}}, supports_credentials = True)
 
 #
 # DATABASE
