@@ -215,8 +215,8 @@ def lyrics(title = None, artist = None):
 
 # calls the searchMulti function from genius.py; returns a list of songs that match the search term
 @app.route('/genius/search/<term>', methods = ['GET', 'POST'])
-@headers({'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36', 'Accept': '*/*'})
 def searchSong(term = None):
+    print(request.headers)
     # parse data
     results = searchMulti(term)
     return results
